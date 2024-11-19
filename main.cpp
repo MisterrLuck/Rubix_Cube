@@ -2,11 +2,31 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    cout << "Hello world\n"; 
+int main()
+{
     Cube cube;
 
-    cube.printCube();
+    // // cube.printCube();
 
+    for (Colour c : cube.orient) {
+        cout << getColourChar(c);
+    }
+    cout << "\n";
+
+    Move move(Y, Double);
+    cube.makeMove(move);
+
+    for (Colour c : cube.orient) {
+        cout << getColourChar(c);
+    }
+    cout << "\n";
+
+    move = Move(Z, Prime);
+    cube.makeMove(move);
+
+    for (Colour c : cube.orient) {
+        cout << getColourChar(c);
+    }
+    cout << "\n";
     return 0;
 }

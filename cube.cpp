@@ -8,24 +8,6 @@ Cube::Cube() {
             faces[i][j] = (Colour) i;
         }
     }
-    // // for (int i = 0; i < 9; i++) {
-    // //     whiteFace[i] = White;
-    // // }
-    // // for (int i = 0; i < 9; i++) {
-    // //     greenFace[i] = Green;
-    // // }
-    // // for (int i = 0; i < 9; i++) {
-    // //     redFace[i] = Red;
-    // // }
-    // // for (int i = 0; i < 9; i++) {
-    // //     yellowFace[i] = Yellow;
-    // // }
-    // // for (int i = 0; i < 9; i++) {
-    // //     blueFace[i] = Blue;
-    // // }
-    // // for (int i = 0; i < 9; i++) {
-    // //     orangeFace[i] = Orange;
-    // // }
 }
 
 void Cube::printCube() {
@@ -36,12 +18,15 @@ void Cube::printCube() {
 
 void Cube::printFace(int ind) {
     Colour* face = faces[ind];
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            std::cout << printColour(face[i+(j*3)]);
-        }
-        cout << "\n";
+    for (int i = 0; i < 8; i++) {
+        // cout << " ";
+        cout << printColour(face[i]);
+        if (i == 3)
+            cout << " ";
+        if (i == 2 || i == 4)
+            cout << "\n";
     }
+    cout << "\n";
 }
 
 char printColour(Colour col) {

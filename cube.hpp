@@ -6,10 +6,11 @@ class Cube
 public:
     Cube();
     void printCube();
+    void printOrient();
     void makeMove(Move move);
-    Colour orient[3];
 
 private:
+
     Colour whiteFace[8];
     Colour greenFace[8];
     Colour redFace[8];
@@ -20,6 +21,7 @@ private:
 
     //* The Top, Front, Right Colour, used for the orientation
     //* 0 -> Top, 1 -> Front, 2 -> Right
+    Colour orient[3];
 
     void printFace(int ind);
 
@@ -33,4 +35,6 @@ private:
     void downTurn(Direction dir);
     void frontTurn(Direction dir);
     void backTurn(Direction dir);
+
+    void (Cube::*moveFunctions[9])(Direction) = {leftTurn, rightTurn, upTurn, downTurn, frontTurn, backTurn, orientX, orientY, orientZ};
 };

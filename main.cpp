@@ -8,25 +8,17 @@ int main()
 
     // // cube.printCube();
 
-    for (Colour c : cube.orient) {
-        cout << getColourChar(c);
-    }
-    cout << "\n";
+    cube.printOrient();
 
     Move move(Y, Double);
     cube.makeMove(move);
 
-    for (Colour c : cube.orient) {
-        cout << getColourChar(c);
-    }
-    cout << "\n";
+    cube.printOrient();
 
     move = Move(Z, Prime);
     cube.makeMove(move);
 
-    for (Colour c : cube.orient) {
-        cout << getColourChar(c);
-    }
-    cout << "\n";
+    cube.printOrient();
+    
     return 0;
 }

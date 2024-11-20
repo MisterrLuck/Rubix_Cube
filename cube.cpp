@@ -44,36 +44,7 @@ void Cube::makeMove(Move move)
     Side side = move.side;
     Direction dir = move.dir;
 
-    switch (side)
-    {
-    // case Left:
-    //     leftTurn(dir);
-    //     break;
-    // case Right:
-    //     rightTurn(dir);
-    //     break;
-    // case Up:
-    //     upTurn(dir);
-    //     break;
-    // case Down:
-    //     downTurn(dir);
-    //     break;
-    // case Front:
-    //     frontTurn(dir);
-    //     break;
-    // case Back:
-    //     backTurn(dir);
-    //     break;
-    case X:
-        orientX(dir);
-        break;
-    case Y:
-        orientY(dir);
-        break;
-    case Z:
-        orientZ(dir);
-        break;
-    }
+    (this->*moveFunctions[(int) side])(dir);
 }
 
 //* Move cube in 'R' direction; On the X-axis
@@ -140,4 +111,21 @@ void Cube::orientZ(Direction dir)
         orient[0] = getOpposite(orient[0]);
         orient[2] = getOpposite(orient[2]);
     }
+}
+
+void Cube::leftTurn(Direction dir) {
+    Colour* face = faces[getOpposite(orient[2])];
+}
+
+void Cube::rightTurn(Direction dir) {}
+void Cube::upTurn(Direction dir) {}
+void Cube::downTurn(Direction dir) {}
+void Cube::frontTurn(Direction dir) {}
+void Cube::backTurn(Direction dir) {}
+
+void Cube::printOrient() {
+    for (Colour c : orient) {
+        cout << getColourChar(c);
+    }
+    cout << "\n";
 }

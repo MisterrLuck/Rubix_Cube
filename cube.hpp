@@ -6,10 +6,16 @@ class Cube
 public:
     Cube();
     void printCube();
+    void printFace(int ind);
     void printOrient();
     void makeMove(Move move);
 
 private:
+    //* [0, 1, 2, 3, 4, 5, 6, 7]
+    //*
+    //* 0 1 2
+    //* 7   3
+    //* 6 5 4
 
     Colour whiteFace[8];
     Colour greenFace[8];
@@ -23,7 +29,8 @@ private:
     //* 0 -> Top, 1 -> Front, 2 -> Right
     Colour orient[3];
 
-    void printFace(int ind);
+
+    void rotateFace(int ind, Direction dir);
 
     void orientX(Direction dir);
     void orientY(Direction dir);

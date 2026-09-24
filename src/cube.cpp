@@ -1,6 +1,8 @@
 #include "cube.hpp"
 #include <iostream>
-using namespace std;
+#include <string>
+// using namespace std;
+using std::cout, std::string;
 
 Cube::Cube()
 {
@@ -14,19 +16,36 @@ Cube::Cube()
     }
 
 	// HACK: This randomises the Green face for testing purposes
-    for (int i = 0; i < 8; i++)
-    {
-        faces[(int) Colour::Green][i] = (Colour)(i%6);
-
-		// NOTE: Is this commented code better?
-        // faces[(int) Green][i] = static_cast<Colour>(i);
-    }
+		//   for (int i = 0; i < 8; i++)
+		//   {
+		//       faces[(int) Colour::Green][i] = (Colour)(i%6);
+		//
+		// // NOTE: Is this commented code better?
+		//       // faces[(int) Green][i] = static_cast<Colour>(i);
+		//   }
 
 	// Set the default orientation
 	// NOTE: Might not need the third designation
     orient[0] = Colour::White;
     orient[1] = Colour::Green;
     orient[2] = Colour::Red;
+}
+
+void Cube::makeMoveSet(string moves)
+{
+	int size = moves.length();
+	if (size %= 2)
+		return; // TODO: Make an error probably
+	
+	for (int i = 0; i < size; i += 2)
+	{
+		char side = moves[i];
+		char dir = moves[i+1];
+
+		Move move(side, dir);
+
+		makeMove(move);
+	}
 }
 
 void Cube::printCube()
@@ -150,28 +169,28 @@ void Cube::upTurn(Direction dir)
 {
 	int faceInd = (int) orient[0];
 
-	rotateFace(faceInd, dir)
+	rotateFace(faceInd, dir);
 }
 
 void Cube::downTurn(Direction dir)
 {
 	int faceInd = (int) getOpposite(orient[0]);
 
-	rotateFace(faceInd, dir)
+	rotateFace(faceInd, dir);
 }
 
 void Cube::frontTurn(Direction dir)
 {
 	int faceInd = (int) orient[1];
 
-	rotateFace(faceInd, dir)
+	rotateFace(faceInd, dir);
 }
 
 void Cube::backTurn(Direction dir)
 {
 	int faceInd = (int) getOpposite(orient[1]);
 
-	rotateFace(faceInd, dir)
+	rotateFace(faceInd, dir);
 }
 
 void Cube::printOrient()

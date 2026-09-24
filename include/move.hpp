@@ -1,3 +1,5 @@
+#pragma once
+
 enum class Colour
 {
     White, Green, Red, Yellow, Blue, Orange
@@ -6,10 +8,9 @@ enum class Colour
 char getColourChar(Colour col);
 Colour getOpposite(Colour col);
 
-
- //* X -> R direction
- //* Y -> U direction
- //* Z -> F direction
+//* X -> R direction
+//* Y -> U direction
+//* Z -> F direction
 enum class Side
 {
     Left, Right, Up, Down, Front, Back, X, Y, Z
@@ -20,10 +21,15 @@ enum class Direction
     Normal, Prime, Double
 };
 
+Side sideFromChar(char s);
+Direction dirFromChar(char d);
+
 struct Move
 {
     Side side;
     Direction dir;
 
     Move(Side s, Direction d = Direction::Normal);
+	// d in [' ', '2', '\'']
+	Move(char s, char d=' ');
 };

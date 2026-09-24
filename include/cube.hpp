@@ -1,5 +1,7 @@
+#pragma once
 #include "move.hpp"
-
+#include <string>
+using std::string;
 
 class Cube
 {
@@ -9,6 +11,9 @@ public:
     void printFace(Colour ind);
     void printOrient();
     void makeMove(Move move);
+	
+	// TODO: Change this function name its kinda bad: (makeMoveSet)
+	void makeMoveSet(string moves);
 	
 	Side getSideFromColour(Colour col);
 	Colour getColourFromSide(Side side);

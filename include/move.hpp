@@ -1,4 +1,4 @@
-enum Colour
+enum class Colour
 {
     White, Green, Red, Yellow, Blue, Orange
 };
@@ -10,12 +10,12 @@ Colour getOpposite(Colour col);
  //* X -> R direction
  //* Y -> U direction
  //* Z -> F direction
-enum Side
+enum class Side
 {
     Left, Right, Up, Down, Front, Back, X, Y, Z
 };
 
-enum Direction
+enum class Direction
 {
     Normal, Prime, Double
 };
@@ -24,5 +24,6 @@ struct Move
 {
     Side side;
     Direction dir;
-    Move(Side s, Direction d=Normal);
+
+    Move(Side s, Direction d = Direction::Normal);
 };

@@ -6,9 +6,12 @@ class Cube
 public:
     Cube();
     void printCube();
-    void printFace(int ind);
+    void printFace(Colour ind);
     void printOrient();
     void makeMove(Move move);
+	
+	Side getSideFromColour(Colour col);
+	Colour getColourFromSide(Side side);
 
 private:
     //* [0, 1, 2, 3, 4, 5, 6, 7]
@@ -26,9 +29,9 @@ private:
     Colour* faces[6] = {whiteFace, greenFace, redFace, yellowFace, blueFace, orangeFace};
 
     //* The Top, Front, Right Colour, used for the orientation
+	// NOTE: Default conf is White, Green, Red
     //* 0 -> Top, 1 -> Front, 2 -> Right
     Colour orient[3];
-
 
     void rotateFace(int ind, Direction dir);
 

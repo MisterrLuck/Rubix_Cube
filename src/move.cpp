@@ -11,24 +11,24 @@ char getColourChar(Colour col)
 {
     switch (col)
     {
-    case White:
-        return 'W';
-    case Green:
-        return 'G';
-    case Red:
-        return 'R';
-    case Yellow:
-        return 'Y';
-    case Blue:
-        return 'B';
-    case Orange:
-        return 'O';
-    }
+		case Colour::White:
+			return 'W';
+		case Colour::Green:
+			return 'G';
+		case Colour::Red:
+			return 'R';
+		case Colour::Yellow:
+			return 'Y';
+		case Colour::Blue:
+			return 'B';
+		case Colour::Orange:
+			return 'O';
+	}
     return ' ';
 }
 
 Colour getOpposite(Colour col)
 {
-    int c = ((int)col + 3) % 6;
+    int c = ((int) col + 3) % 6;
     return (Colour)c;
 }

@@ -135,21 +135,44 @@ void Cube::leftTurn(Direction dir)
 {
 	// Opposite of right face
     int faceInd = (int) getOpposite(orient[2]);
-    // Colour* face = faces[faceInd];
 
     rotateFace(faceInd, dir);
 }
 
-void Cube::rightTurn(Direction dir) {
+void Cube::rightTurn(Direction dir)
+{
 	int faceInd = (int) orient[2];
-	// Colour* face = faces[faceInd];
 
 	rotateFace(faceInd, dir);
 }
-void Cube::upTurn(Direction dir) {}
-void Cube::downTurn(Direction dir) {}
-void Cube::frontTurn(Direction dir) {}
-void Cube::backTurn(Direction dir) {}
+
+void Cube::upTurn(Direction dir)
+{
+	int faceInd = (int) orient[0];
+
+	rotateFace(faceInd, dir)
+}
+
+void Cube::downTurn(Direction dir)
+{
+	int faceInd = (int) getOpposite(orient[0]);
+
+	rotateFace(faceInd, dir)
+}
+
+void Cube::frontTurn(Direction dir)
+{
+	int faceInd = (int) orient[1];
+
+	rotateFace(faceInd, dir)
+}
+
+void Cube::backTurn(Direction dir)
+{
+	int faceInd = (int) getOpposite(orient[1]);
+
+	rotateFace(faceInd, dir)
+}
 
 void Cube::printOrient()
 {
@@ -159,15 +182,11 @@ void Cube::printOrient()
 	cout << getColourChar(getOpposite(orient[2])) << getColourChar(orient[1])
 	// Right and back
 		<< getColourChar(orient[2]) << getColourChar(getOpposite(orient[1])) << "\n";
+	// Bottom
 	cout << " " << getColourChar(getOpposite(orient[0])) << "\n";
-
-    // for (Colour c : orient)
-    // {
-    //     cout << getColourChar(c);
-    // }
-    // cout << "\n";
 }
 
+// HACK: IDK how efficient this is
 void Cube::rotateFace(int ind, Direction dir)
 {
     Colour* face = faces[ind];
